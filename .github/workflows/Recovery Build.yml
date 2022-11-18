@@ -14,7 +14,7 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/samsung-sc8830/twrp_device_samsung_gtel3g'
+        default: 'https://github.com/samsung-sc8830/twrp_device_samsung_goyave'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
@@ -22,7 +22,7 @@ on:
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/samsung/gtel3g'
+        default: 'device/samsung/goyave'
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: true
@@ -34,11 +34,11 @@ on:
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
-        default: 'gtel3g'
+        default: 'goyave'
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME'
         required: true
-        default: 'omni_gtel3g'
+        default: 'omni_goyave'
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
