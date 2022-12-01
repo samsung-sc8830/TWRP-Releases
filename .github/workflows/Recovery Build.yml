@@ -150,12 +150,15 @@ jobs:
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
+        mv out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-${{ github.event.inputs.DEVICE_NAME }}-3.2.0*-UNOFFICIAL.zip out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-${{ github.event.inputs.DEVICE_NAME }}-3.2.0-UNOFFICIAL.zip
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
+        files: |
+          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
+          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-${{ github.event.inputs.DEVICE_NAME }}-3.2.0-UNOFFICIAL.zip
         name: ${{ github.event.inputs.DEVICE_NAME }}-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
